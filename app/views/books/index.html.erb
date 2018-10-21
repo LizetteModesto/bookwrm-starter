@@ -1,0 +1,27 @@
+<section class="book-block-container">
+  <div class="books">
+    <%= @books, each  do |book| %>
+    <div class="book">
+      <div class="book-cover">
+        <%= if book.image_url %>
+          <%= image_tag book.image_url %>
+        <%= end %>
+      </div>
+      <div class="tect-block">
+        <h5><%= link_to book.title, book_path(book) %></h5>
+        <h6><%= link_to book.author. full_name, author_path(book.author) %></h6>
+      </div>
+    </div>
+  <%= end %>
+</div>
+</section>
+    end
+      
+    end
+<p id="notice"><%= notice %></p>
+
+<h1>Books</h1>
+
+<br>
+
+<%= link_to 'New Book', new_book_path %>
