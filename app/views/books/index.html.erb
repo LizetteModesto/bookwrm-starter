@@ -1,18 +1,18 @@
 <section class="book-block-container">
   <div class="books">
-    <%= @books, each  do |book| %>
+    <% @books.each  do |book| %>
     <div class="book">
       <div class="book-cover">
-        <%= if book.image_url %>
+        <% if book.image_url %>
           <%= image_tag book.image_url %>
-        <%= end %>
+        <% end %>
       </div>
       <div class="text-block">
         <h5><%= link_to book.title, book_path(book) %></h5>
         <h6><%= link_to book.author. full_name, author_path(book.author) %></h6>
       </div>
     </div>
-  <%= end %>
+  <% end %>
 </div>
 </section>
     end
