@@ -1,5 +1,14 @@
-<h1>New Review</h1>
+<header class="page-header">
+  <div class="header-block-container">
+    <h1>Write Review</h1>
+    <% if current_user.present? %>
+    	<%= link_to '+ New Review', new_review_path, class: 'button-white' %>
+    <% end %>
+  </div>
+</header>
 
-<%= render 'form', review: @review %>
-
-<%= link_to 'Back', reviews_path %>
+<div class="form=header-block-container">
+  <div class="card">
+    <%= render 'form', review: @review %>
+  </div>
+</div>

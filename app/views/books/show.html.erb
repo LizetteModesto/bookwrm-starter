@@ -1,12 +1,3 @@
-<header class="page-header">
-  <div class="header-block-container">
-    <h1><%= @book.title %></h1>
-    <% if current_user.present? %>
-      <%= link_to '+ New Book', new_book_path, class: 'button-white' %>
-    <% end %>
-  </div>
-</header>
-
 <section class="book-wrapper">
   <div class="book-block-container">
     <% if @book.image_url %>
@@ -20,5 +11,31 @@
       <%= link_to "Write a review", new_book_review_path(@book), class: 'button-primary' %>
       <%= link_to 'Edit', edit_book_path(@book) %>
     <% end %>
+  </div>
+</section>
+
+<section>
+  <div class="reviews-block-container">
+    <h3>Reviews (<%= @book.reviews.size %></h3>
+    <div class="reviews">
+      <% @book.reviews.each do |review| %>
+        <div class="review">
+          <div class="user-initials">
+            <%= review.user.initials %>
+          </div>
+          <div class="text-block">
+            <div class="user-name">
+              <strong><%= review.user.full_name %></strong>
+            </div>
+          </div>
+        <div class="rating-stars">
+          <% image_tag("#{review.rating}-stars.svg") %>
+          <div class="timestamp">
+            <%= review.created_at.strftime('%-m/%-d/%y') %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+   </div>
   </div>
 </section>
